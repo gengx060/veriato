@@ -1,6 +1,6 @@
 1. IDE visual studio 2015, c#.
-2. Hardcoded server port to 9999, TODO: Read from config file or  command line arguments.
-3. It waches txt files change on every drive in the computer, and sends the encrypted information of changed txt files to server
+2. Hardcoded server port to 9999, TODO: Read from config file or command line arguments.
+3. It watches txt file changes on all drives in computer, and sends the encrypted information of changed txt files to server
 4. Hardcoded server log file is C:\Users\Public\server.log, again this can be configurable, better to save it to database for easy management	.
    Server log file writting is atomic by lock
 5. Simple encryption, server generates public and private key, sends public key to client, client sends the encrypted data with public key, server
