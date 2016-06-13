@@ -1,0 +1,19 @@
+1. IDE visual studio 2015, c#.
+2. Hardcoded server port to 9999, TODO: Read from config file or  command line arguments.
+3. It waches txt files change on every drive in the computer, and sends the encrypted information of changed txt files to server
+4. Hardcoded server log file is C:\Users\Public\server.log, again this can be configurable, better to save it to database for easy management	.
+   Server log file writting is atomic by lock
+5. Simple encryption, server generates public and private key, sends public key to client, client sends the encrypted data with public key, server
+   decrypts it with private key
+   
+How to use
+1. Run Server project
+2. Right click FileClient project, go to Debug, type in ip address of the server
+	default to 127.0.0.1 if none, if fails to connect to server, FileClient will only show txt file change info to 
+	command line, otherwise it will send to server.
+	then run Client project
+   Or, after build FileClient project, go to Debug folder, Opend a command window, type in 'FileClient 192.168.0.12' the ip is the server ip
+3. modify or create a txt file on client side, a message should be generated in C:\Users\Public\server.log file on server side
+	a sample entry of server.log file:  
+	06/12/2016 13:42:17  ip:192.168.0.19 File: G:\s.txt   filesize: 93bytes
+  
